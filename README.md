@@ -1,7 +1,7 @@
 # javascript.js
 j.s code
-
-1. function minimumPlanesRequired(arr) {
+1.
+  function minimumPlanesRequired(arr) {
   const n = arr.length;
   const dp = new Array(n).fill(Infinity);
   dp[0] = 0;
@@ -24,8 +24,8 @@ For each airport i, we check all possible destinations j that can be reached fro
 After iterating through all airports, dp[n - 1] will contain the minimum number of planes required to reach the last airport. If it is still infinity, it means we couldn't reach the last airport and we return -1.
 Note that this solution has a time complexity of O(n^2) and a space complexity of O(n). It can be optimized further using a BFS approach or by using a priority queue to store the next possible destinations.
 
-
-2. function minimumPlanesRequired(fuelArr) {
+2.
+  function minimumPlanesRequired(fuelArr) {
   const N = fuelArr.length;
   let currentPos = 0;
   let planesHired = 0;
