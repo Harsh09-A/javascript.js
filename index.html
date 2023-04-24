@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #026b25;
+        }
+        .upload-button {
+            position: absolute;
+            left: 70%;
+            top: 70%;
+            transform: translate(-50%, -50%);
+        }
+        .upload-button img {
+            height: 20px;
+            margin-right: 5px;
+        }
+        .upload-button input[type="file"] {
+            display: none;
+        }
+        .color-buttons {
+            position: absolute;
+            left: 70%;
+            top: 60%;
+            transform: translateX(-50%);
+        }
+        .color-button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border-radius: 50%;
+            color: white;
+        }
+        .color-button[data-color="#FFC0CB"] {
+            background-color: #FFC0CB;
+        }
+        .color-button[data-color="#ADD8E6"] {
+            background-color: #ADD8E6;
+        }
+        .color-button[data-color="#FFFF00"] {
+            background-color: #FFFF00;
+            color: black;
+        }
+        .loading {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .color-image {
+            max-width: 100%;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CUSTOMIZED UMBRELLA</h1>
+    <div class="color-buttons">
+        <button class="btn color-button" data-color="#FFC0CB" data-image="https://drive.google.com/uc?id=1VsHEklDiL5VbAlW3wJDG1iovKMJOBOrc"></button>
+        <button class="btn color-button" data-color="#ADD8E6" data-image="https://drive.google.com/uc?id=1EGZdRH9RffKCorSJjgKEGCHy4YFro2EX"></button>
+        <button class="btn color-button" data-color="#FFFF00" data-image="https://drive.google.com/uc?id=1MUsJ7TOc2dLnrvJ_VFWVApTh1OVfkK3S"></button>
+    </div>
+    <label class="btn btn-primary upload-button">
+        <img src="https://drive.google.com/uc?id=1-iV7uV2c8fEez4zRSIgusopCVZydoYif" alt="Logo"> Upload Logo
+        <input type="file">
+    </label>
+    <img class="loading" src="https://drive.google.com/uc?id=1VX4q4rdO8ta5nVYcXlrv-YXXC8EEyRNS" alt="Loading">
+    <img class="color-image" src="" alt="">
+    <script>
+        document.querySelector('.upload-button input[type="file"]').onchange = function() {
+            console.log('File selected:', this.files[0]);
+            // Show the loading animation
+            document.querySelector('.loading').style.display = 'block';
+            // Simulate image processing
+            setTimeout(function() {
+                // Hide the loading animation
+                document.querySelector('.loading').style.display = 'none';
+                // Image processing complete
+                console.log('Image processing complete');
+            }, 3000);
+        };
+        document.querySelectorAll('.color-button').forEach(function(button) {
+            button.onclick = function() {
+                // Show the loading animation
+                document.querySelector('.loading').style.display = 'block';
+                // Simulate color changing
+                setTimeout(function() {
+                    // Hide the loading animation
+                    document.querySelector('.loading').style.display = 'none';
+                    // Change the image
+                    document.querySelector('.color-image').src = button.getAttribute('data-image');
+                }, 1000);
+            };
+        });
+    </script>
+</body>
+</html>
